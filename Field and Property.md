@@ -19,7 +19,7 @@ Property
 ```cs
 class Person
 {
-    private age;
+    private int age;
     public int Age
     {
         get
@@ -34,15 +34,15 @@ class Person
 }
 ```
 
-In properties, there are two new keywords you'll encounter, `get` and `set`. In this example, when you assign something to `Age`, the code within `set` is called. And when you call `Age`, the code within `get` is called.
+In properties, there are two new keywords you'll encounter, `get` and `set`. In this example, when you assign something to `Age`, the code within `set` is executed. And when you call `Age`, the code within `get` is executed.
 
-Both of the above do the same thing, to provide the age of a person.
+Both of the above do the same thing, to provide the age of a person object.
 
 ## Usage of fields and properties
 
 Let's say that I have a class called `Circle` and it has attributes named `Radius`, `Diameter` and `Circumference`.
 
-Since diameter and circumference can be computed directly from radius itself, the most efficient way of  would be to implement 3 public properties that would expose a private `radius` field.
+Since diameter and circumference can be computed directly from radius itself, the best way to go along with this would be to implement 3 public properties that would expose a private `radius` field.
 ```cs
 class Circle
 {
@@ -50,7 +50,7 @@ class Circle
     
     public double Radius
     {
-        get => return radius;
+        get => radius;
         set => radius = value;
     }
     public double Diameter
@@ -72,6 +72,6 @@ class Circle
 
 With this, you only need to write at `Radius` and then the change would immediately reflect at Diameter and Circumference.
 
-Do note that in properties, when you don't type out a `get`, you won't be able to call that property, since it'll become write-only. By omitting the `set`, it'll become read-only.
+Do note that in properties, when you don't define a `get`, you won't be able to call the value of that property, making it a write-only property. Respectively, by omitting the `set`, it'll become a read-only property.
 
-By using a private field, you can use properties as a way to expose those private fields. This way, the information that should contain within that class, will remain within that class through the proper use of fields and properties.
+By using a private field, you can use properties as a way to expose the values of those private fields and gives you the ability to perform validations through the property itself. This way, the information that should contain within that class, will remain within that class through the use of fields and properties.
